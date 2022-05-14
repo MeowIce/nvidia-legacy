@@ -17,7 +17,7 @@ For example I'll use 340.108:
 2. Browse for your current kernel:
 In this case, I'm running 5.17 kernel:
 
-![image](https://user-images.githubusercontent.com/70711319/168417572-1bcd146b-f0b3-454c-b235-33fb3d093379.png)
+![image](https://user-images.githubusercontent.com/70711319/168422038-bc52e0d6-72b9-4083-84a1-985caaf3939f.png)
 
 3. Download your `.run` file and install it.
 
