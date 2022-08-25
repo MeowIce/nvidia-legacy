@@ -2,11 +2,12 @@
 This repository includes patched legacy/dropped support nVIDIA drivers for newer Linux kernels.
 
 ## Which versions and kernels are supported ?
-- 340.108 (5.8, 5.10, 5.15, 5.17, **5.18**)
+- 340.108 (5.8, 5.10, 5.15, 5.17, **5.18+**)
 - ~~390.147 (5.17)~~ (removed)
-- 390.151 (**5.18**)
+- 390.151 (**5.18+**)
 - 418.113 (5.8, 5.10, **5.11**)
 - 435.21 (5.4, **5.11**)
+- 515.65.01 (**6.0+**)
 
 ***Bold**: latest patch for that kernel*
 ## How to use:
@@ -21,14 +22,26 @@ In this case, I'm running 5.17 kernel:
 
 ![image](https://user-images.githubusercontent.com/70711319/168422038-bc52e0d6-72b9-4083-84a1-985caaf3939f.png)
 
-3. Download the patched `.run` file and install it.
+3. Download the patched `.run` file and install it:
 
 ![image](https://user-images.githubusercontent.com/70711319/168417619-adc7a601-5ea7-4222-94af-fdde2345b2f0.png)
 
+Press `Ctrl` + `Alt` + `F1` (any from 1 - 6).
+
+Login with your account.
+
+`cd` to your patched nVIDIA driver.
+
 ```
-$ chmod +x <filename>
+$ sudo su
+# systemctl stop lightdm
+# chmod +x <filename>
 # ./<filename>
 ```
+
+Reboot after installation.
+
+*Replace `lightdm` with your window manager (GDM, LightDM, etc.).*
 
 ## Don't know if your GPU is out of date ?
 See [nVIDIA Legacy GPU/Drivers list](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/)
@@ -38,3 +51,4 @@ See [nVIDIA Legacy GPU/Drivers list](https://www.nvidia.com/en-us/drivers/unix/l
 - If installation failed, retry without DKMS: choose the default option `No`.
 - Run `nvidia-xconfig` for it to generate config file (`xorg.conf`).
 - Run `nvidia-settings` to config your drivers if you don't see it in the DE's launcher.
+- After updating your kernel, reinstall the driver if it won't load. This is because you did not install it with DKMS.
