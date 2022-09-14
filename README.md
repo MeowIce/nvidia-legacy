@@ -52,3 +52,4 @@ See [nVIDIA Legacy GPU/Drivers list](https://www.nvidia.com/en-us/drivers/unix/l
 - Run `nvidia-xconfig` for it to generate config file (`xorg.conf`).
 - Run `nvidia-settings` to config your drivers if you don't see it in the DE's launcher.
 - After updating your kernel, reinstall the driver if it won't load. This is because you did not install it with DKMS.
+- Patches by [inttf](https://www.if-not-true-then-false.com/2020/inttf-nvidia-patcher/).
