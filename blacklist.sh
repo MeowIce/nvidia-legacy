@@ -8,3 +8,4 @@ bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouv
 update-initramfs -u
 sleep 2
 echo "Now it is safe to restart you computer ;)"
+
