@@ -2,7 +2,7 @@
 This repository includes patched legacy/dropped support nVIDIA drivers for newer Linux kernels.
 
 ## Which versions and kernels are supported ?
-- 340.108 (5.8, 5.10, 5.15, 5.17, **5.18+**)
+- 340.108 (5.8, 5.10, 5.15, 5.17, **5.18/5.19**, **6.0+**)
 - ~~390.147 (5.17)~~ (removed)
 - 390.151 (**5.18+**)
 - 418.113 (5.8, 5.10, **5.11**)
@@ -22,7 +22,7 @@ In this case, I'm running 5.17 kernel:
 
 ![image](https://user-images.githubusercontent.com/70711319/168422038-bc52e0d6-72b9-4083-84a1-985caaf3939f.png)
 
-3. Download the patched `.run` file and install it:
+3. Download the blacklist file and the patched `.run` file then install it:
 
 ![image](https://user-images.githubusercontent.com/70711319/168417619-adc7a601-5ea7-4222-94af-fdde2345b2f0.png)
 
@@ -35,8 +35,9 @@ Login with your account.
 ```
 $ sudo su
 # systemctl stop lightdm
-# chmod +x <filename>
-# ./<filename>
+# chmod +x blacklist.sh && ./blacklist.sh
+# chmod +x <nvidia_filename>
+# ./<nvidia_filename>
 ```
 
 Reboot after installation.
@@ -46,10 +47,40 @@ Reboot after installation.
 ## Don't know if your GPU is out of date ?
 See [nVIDIA Legacy GPU/Drivers list](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/)
 
-## Notes:
-- [Blacklist `nouveau driver`](https://linuxconfig.org/how-to-disable-blacklist-nouveau-nvidia-driver-on-ubuntu-20-04-focal-fossa-linux) before continue installation. This applies for most Linux distro.
-- If installation failed, retry without DKMS: choose the default option `No`.
-- Run `nvidia-xconfig` for it to generate config file (`xorg.conf`).
-- Run `nvidia-settings` to config your drivers if you don't see it in the DE's launcher.
-- After updating your kernel, reinstall the driver if it won't load. This is because you did not install it with DKMS.
-- Patches by [inttf](https://www.if-not-true-then-false.com/2020/inttf-nvidia-patcher/).
+# Known issues
+
+## Kernel panic during installation
+- Newer kernels might spam kernel panic while installing Unified Memory Modules. This is alright and will not affect to the installation progress.
+If you could not see the message box content, try pressing arrow left/right keys and it will refresh :)
+
+## For Ubuntu 22.04+:
+- The default kernel must be 5.15.
+- Try with 5.15 patch first. If you booted into `Oh no` screen or at low resolution, continue reading.
+#### Oh no screen:
+
+`# apt update && apt upgrade -y`
+
+Reboot and re-install.
+If not working, try the **Low Resolution** method and replace gdm with lightdm.
+
+#### Low resolution:
+- Install 5.18 patch although you're on 5.15 (it should work).
+- Delete the old `xorg.conf` and generate a new one with `nvidia-xconfig`.
+
+## No TTY
+After installed the driver. The screen will turn off and you won't be able to see anythingin TTY mode, thus TTY still working and recognizes keyboard input. (login with username and password in blind then you will see HDD light blinking).
+To fix this:
+- Open your grub file as root (`/etc/default/grub`).
+Remove the `#` in
+```
+#GRUB_TERMINAL=console
+#GRUB_GFXMODE=640x480
+```
+
+- You can change `640x480` to your screen resolution.
+- Save the file then update grub (`sudo update-grub`).
+
+## Graphics issues after suspend (sleep)
+- This is a well-known issue for nvidia drivers. You can try to suspend via power menu instead of closing the lid. If it does not fix, restart the desktop via the command `r` (`Alt` `F2`).
+
+# Folk + Star this repo cuz I will remove old kernels support as Git LFS storage is running out.
