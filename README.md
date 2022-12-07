@@ -6,8 +6,6 @@ This repository includes patched legacy/dropped support nVIDIA drivers for newer
 - ~~390.147 (5.17)~~ (removed)
 - 390.151 (**5.18+**)
 - 418.113 (5.8, 5.10, **5.11**)
-- 435.21 (5.4, **5.11**)
-- 515.65.01 (**6.0+**)
 
 ***Bold**: latest patch for that kernel*
 ## How to use:
