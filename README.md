@@ -9,6 +9,7 @@ This repository includes patched legacy/dropped support nVIDIA drivers for newer
 - 515.65.01 (**6.0+**)^
 
 ***Bold**: latest patch for that kernel*
+
 **^: Removed, you may want to look at forked to see previous versions.**
 ## How to use:
 1. Select your driver version from the `branch` menu:
