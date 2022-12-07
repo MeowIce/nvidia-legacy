@@ -1,13 +1,15 @@
 # Patched legacy nVIDIA drivers to work with newer Linux kernels.
 This repository includes patched legacy/dropped support nVIDIA drivers for newer Linux kernels.
-
+#### From December 7, 2022, I will start to remove non-LTS kernel drivers as my Git LFS is being limited. Please fork this repo to back it up.
 ## Which versions and kernels are supported ?
-- 340.108 (5.8, 5.10, 5.15, 5.17, **5.18/5.19**, **6.0+**)
-- ~~390.147 (5.17)~~ (removed)
+- 340.108 (5.8^, 5.10, 5.15, 5.17^, 5.18/5.19, **6.0+**)
 - 390.151 (**5.18+**)
 - 418.113 (5.8, 5.10, **5.11**)
+- 435.21 (5.4, **5.11**)^
+- 515.65.01 (**6.0+**)^
 
 ***Bold**: latest patch for that kernel*
+**^: Removed, you may want to look at forked to see previous versions.**
 ## How to use:
 1. Select your driver version from the `branch` menu:
 For example I'll use 340.108:
