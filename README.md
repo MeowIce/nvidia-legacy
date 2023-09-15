@@ -4,7 +4,7 @@ This repository includes patched legacy/dropped support nVIDIA drivers for newer
 # If you found this repo helpful and saved you in a rainy day then give it a star ;)
 
 ## Which versions and kernels are supported ?
-- 340.108 (5.8^, 5.10, 5.15, 5.17^, 5.18/5.19, 6.0, 6.2, **6.3.x**)
+- 340.108 (5.8^, 5.10, 5.15, 5.17^, 5.18/5.19, 6.0, 6.2, 6.3, **6.5.x**)
 - 390.151 (**5.18+**)
 - 418.113 (5.8, 5.10, **5.11**)
 - 435.21 (5.4, **5.11**)^
