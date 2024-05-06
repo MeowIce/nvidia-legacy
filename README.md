@@ -87,4 +87,3 @@ Remove the `#` in
 ## Graphics issues after suspend (sleep)
 - This is a well-known issue for nvidia drivers. You can try to suspend via power menu instead of closing the lid. If it does not fix, restart the desktop via the command `r` (`Alt` `F2`).
 
-# Folk + Star this repo cuz I will remove old kernels support as Git LFS storage is running out.
